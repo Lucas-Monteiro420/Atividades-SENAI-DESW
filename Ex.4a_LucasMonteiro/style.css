@@ -1,0 +1,712 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-primary: #3a6c8d;
+    --color-primary-dark: #1e4258;
+    --color-secondary: #c9a66b;
+    --color-light: #f9f7f4;
+    --color-white: #fff;
+    --color-dark: #333;
+    --color-grey: #888;
+    --shadow-soft: 0 5px 15px rgba(0, 0, 0, 0.08);
+    --shadow-medium: 0 8px 20px rgba(0, 0, 0, 0.12);
+    --transition: all 0.3s ease;
+}
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    line-height: 1.8;
+    color: var(--color-dark);
+    background-color: var(--color-light);
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-primary);
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--color-primary-dark);
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 1.2rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Header aprimorado */
+header {
+    background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary));
+    color: var(--color-white);
+    padding: 2rem 0;
+    box-shadow: var(--shadow-medium);
+    position: relative;
+    z-index: 10;
+    text-align: center;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo h1 {
+    font-size: 3.5rem;
+    letter-spacing: 3px;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    position: relative;
+    display: inline-block;
+    font-weight: bold;
+    background: linear-gradient(45deg, var(--color-secondary), var(--color-white));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.logo h1::after {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 4px;
+    background-color: var(--color-secondary);
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.logo p {
+    font-style: italic;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.2rem;
+    opacity: 0.85;
+    letter-spacing: 1px;
+    color: var(--color-light-gray);
+}
+
+
+/* Navegação */
+nav {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 1rem 0;
+}
+
+nav ul li {
+    margin: 0 1.2rem;
+    position: relative;
+}
+
+nav ul li a {
+    color: var(--color-white);
+    font-weight: 600;
+    padding: 0.7rem 1.2rem;
+    border-radius: 3px;
+    transition: var(--transition);
+    letter-spacing: 0.5px;
+    position: relative;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: var(--color-secondary);
+    bottom: -3px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: var(--transition);
+}
+
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+nav ul li a:hover::after {
+    width: 70%;
+}
+
+/* Estrutura Principal */
+main {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 2.5rem;
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 0 2rem;
+}
+
+/* Seções */
+section {
+    margin-bottom: 4rem;
+}
+
+section h2 {
+    font-size: 2rem;
+    padding-bottom: 0.8rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #e0e0e0;
+    color: var(--color-primary-dark);
+    position: relative;
+}
+
+section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background-color: var(--color-secondary);
+}
+
+/* Imagens */
+.artigo-imagem, .filosofo-imagem {
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+}
+
+.imagem-destaque, .imagem-filosofo {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: var(--transition);
+    display: block;
+}
+
+.imagem-destaque {
+    max-height: 400px;
+}
+
+.imagem-filosofo {
+    height: 200px;
+}
+
+.artigo-imagem:hover .imagem-destaque, 
+.filosofo-imagem:hover .imagem-filosofo {
+    transform: scale(1.03);
+}
+
+
+/* Destaque */
+.destaque-principal {
+    background-color: var(--color-white);
+    padding: 2.5rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow-soft);
+    margin-bottom: 2.5rem;
+    position: relative;
+    border-left: 5px solid var(--color-secondary);
+    transition: var(--transition);
+}
+
+.destaque-principal:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+}
+
+.destaque-principal h3 {
+    font-size: 1.8rem;
+    color: var(--color-primary-dark);
+}
+
+.destaque-principal p {
+    font-size: 1.1rem;
+    margin: 1rem 0 1.5rem;
+    line-height: 1.8;
+}
+
+/* Cards de Filósofos */
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.card-filosofo {
+    background-color: var(--color-white);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    border-top: 4px solid transparent;
+}
+
+.card-filosofo:hover {
+    transform: translateY(-7px);
+    box-shadow: var(--shadow-medium);
+    border-top: 4px solid var(--color-secondary);
+}
+
+.card-filosofo h3 {
+    color: var(--color-primary-dark);
+    font-size: 1.6rem;
+}
+
+.card-filosofo p {
+    margin: 1rem 0;
+    font-size: 1.05rem;
+}
+
+.card-filosofo::before {
+    content: """;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 6rem;
+    font-family: Georgia, serif;
+    color: rgba(0, 0, 0, 0.05);
+    line-height: 1;
+}
+
+/* Botões */
+.btn-leiamais {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.7rem 1.5rem;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-radius: 5px;
+    font-weight: 600;
+    transition: var(--transition);
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-leiamais::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: var(--color-primary-dark);
+    transition: var(--transition);
+    z-index: -1;
+}
+
+.btn-leiamais:hover {
+    color: var(--color-white);
+}
+
+.btn-leiamais:hover::before {
+    width: 100%;
+}
+
+/* Períodos Filosóficos */
+#periodos article {
+    background-color: var(--color-white);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow-soft);
+    margin-bottom: 2rem;
+    transition: var(--transition);
+    border-left: 4px solid var(--color-primary);
+}
+
+#periodos article:hover {
+    transform: translateX(5px);
+    box-shadow: var(--shadow-medium);
+}
+
+#periodos h3 {
+    color: var(--color-primary-dark);
+    margin-bottom: 0.8rem;
+    font-size: 1.5rem;
+}
+
+/* Sidebar */
+.sidebar {
+    grid-column: 2;
+    grid-row: 1 / 4;
+}
+
+.widget {
+    background-color: var(--color-white);
+    padding: 1.8rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow-soft);
+    margin-bottom: 2rem;
+    transition: var(--transition);
+}
+
+.widget:hover {
+    box-shadow: var(--shadow-medium);
+}
+
+.widget h3 {
+    font-size: 1.4rem;
+    color: var(--color-primary-dark);
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid #eee;
+    position: relative;
+}
+
+.widget h3::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 3px;
+    background: var(--color-secondary);
+    bottom: -1px;
+    left: 0;
+}
+
+blockquote {
+    font-style: italic;
+    border-left: 3px solid var(--color-secondary);
+    padding: 0.5rem 0 0.5rem 1.2rem;
+    margin: 1.2rem 0;
+    background-color: rgba(201, 166, 107, 0.05);
+    border-radius: 0 5px 5px 0;
+}
+
+cite {
+    display: block;
+    margin-top: 0.8rem;
+    font-size: 0.95rem;
+    text-align: right;
+    color: var(--color-grey);
+}
+
+.widget ul {
+    list-style: none;
+}
+
+.widget ul li {
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px dashed #eee;
+    position: relative;
+    padding-left: 1.2rem;
+}
+
+.widget ul li::before {
+    content: "•";
+    color: var(--color-secondary);
+    font-size: 1.2rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.widget ul li:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+    color: var(--color-white);
+    padding: 2.5rem 1.5rem 1.5rem; 
+    margin-top: 2rem; 
+    position: relative;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px; 
+    background: var(--color-secondary);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem; 
+}
+
+.footer-col h4 {
+    font-size: 1.2rem; 
+    margin-bottom: 1rem; 
+    padding-bottom: 0.6rem; 
+    position: relative;
+}
+
+.footer-col h4::after {
+    content: '';
+    position: absolute;
+    width: 40px; 
+    height: 2px;
+    background: var(--color-secondary);
+    bottom: 0;
+    left: 0;
+}
+
+.footer-col p {
+    margin-bottom: 0.8rem; 
+    opacity: 0.9;
+    line-height: 1.5; 
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 0.6rem; 
+    transition: var(--transition);
+}
+
+.footer-col ul li:hover {
+    transform: translateX(5px);
+}
+
+.footer-col a {
+    color: rgba(255, 255, 255, 0.8);
+    transition: var(--transition);
+}
+
+.footer-col a:hover {
+    color: var(--color-white);
+}
+
+.social-icons {
+    display: flex;
+    gap: 0.8rem; 
+    margin-top: 1rem; 
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px; 
+    height: 34px; 
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+.social-icon:hover {
+    background-color: var(--color-secondary);
+    transform: translateY(-3px);
+}
+
+.copyright {
+    max-width: 1200px;
+    margin: 2rem auto 0; 
+    padding-top: 1rem; 
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    font-size: 0.9rem; 
+    opacity: 0.8;
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.destaque-principal, .card-filosofo, .widget, #escolas article {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+.card-filosofo:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.card-filosofo:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+/* Responsividade */
+/* Responsividade */
+@media (max-width: 1200px) {
+    .container, main, .footer-content {
+        max-width: 95%;
+    }
+}
+
+@media (max-width: 992px) {
+    .logo h1 {
+        font-size: 2.8rem;
+    }
+    
+    main {
+        grid-template-columns: 2fr 1fr;
+        gap: 2rem;
+        padding: 0 1.5rem;
+    }
+    
+    .cards-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    main {
+        grid-template-columns: 1fr;
+    }
+    
+    .sidebar {
+        grid-column: 1;
+        grid-row: auto;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .logo h1 {
+        font-size: 2.5rem;
+    }
+    
+    .logo p {
+        font-size: 1rem;
+    }
+    
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    nav ul li {
+        margin: 0.5rem;
+    }
+    
+    .destaque-principal {
+        padding: 1.8rem;
+    }
+    
+    .destaque-principal h3 {
+        font-size: 1.6rem;
+    }
+    
+    .card-filosofo {
+        padding: 1.6rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .cards-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .logo h1 {
+        font-size: 2rem;
+    }
+    
+    section h2 {
+        font-size: 1.8rem;
+    }
+    
+    .destaque-principal h3 {
+        font-size: 1.5rem;
+    }
+    
+    .destaque-principal, .card-filosofo, .widget, #periodos article {
+        padding: 1.5rem;
+    }
+    
+    header {
+        padding: 1.5rem 0;
+    }
+    
+    .container {
+        padding: 0 1rem;
+    }
+    
+    main {
+        padding: 0 1rem;
+        margin: 2rem auto;
+    }
+    
+    .artigo-imagem, .filosofo-imagem {
+        margin-bottom: 1rem;
+    }
+    
+    .imagem-destaque {
+        max-height: 300px;
+    }
+    
+    nav ul {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    
+    nav ul li {
+        margin: 0.2rem;
+    }
+    
+    nav ul li a {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 420px) {
+    .logo h1 {
+        font-size: 1.8rem;
+    }
+    
+    section h2 {
+        font-size: 1.6rem;
+    }
+    
+    .destaque-principal h3 {
+        font-size: 1.4rem;
+    }
+    
+    .card-filosofo h3 {
+        font-size: 1.4rem;
+    }
+    
+    .btn-leiamais {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+    
+    .widget h3 {
+        font-size: 1.3rem;
+    }
+    
+    .footer-col h4 {
+        font-size: 1.1rem;
+    }
+}
